@@ -1,0 +1,180 @@
+body {
+  background: linear-gradient(135deg, #073b4c, #118ab2, #06d6a0);
+  overflow: hidden;
+  height: 100vh;
+  margin: 0;
+  font-family: 'Century Gothic', sans-serif;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+
+@keyframes float {
+  0% { transform: translateY(100vh) scale(0.5); opacity: 0.7; }
+  100% { transform: translateY(-10vh) scale(1); opacity: 0; }
+}
+.heart {
+  position: absolute;
+  bottom: -50px;
+  width: 20px;
+  height: 20px;
+  background: red;
+  transform: rotate(45deg);
+  animation: float 8s linear infinite;
+  opacity: 0.8;
+}
+.heart::before,
+.heart::after {
+  content: "";
+  position: absolute;
+  width: 20px;
+  height: 20px;
+  background: red;
+  border-radius: 50%;
+}
+.heart::before { top: -10px; left: 0; }
+.heart::after { left: -10px; top: 0; }
+
+
+.body {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+
+h2 {
+  animation: 1s blink linear infinite;
+  text-align: center;
+}
+@keyframes blink {
+  0% { color: #fff; }
+  25% { color: #ffde59; }
+  50% { color: #ff7eb9; }
+  75% { color: #b5ff7d; }
+  100% { color: #6ec6ff; }
+}
+
+/* Card style */
+.birthdayCard {
+  position: relative;
+  width: 260px;
+  height: 370px;
+  cursor: pointer;
+  transform-style: preserve-3d;
+  transform: perspective(2500px);
+  transition: 1s;
+}
+.cardFront {
+  background-color: #fff;
+  width: 260px;
+  height: 370px;
+  transform-origin: left;
+  box-shadow: 0 10px 40px rgba(0, 0, 0, .4);
+  transition: .6s;
+  border-radius: 12px;
+}
+.happy {
+  font-size: 22px;
+  margin: 20px;
+  text-align: center;
+  background: linear-gradient(45deg, #ff4b1f, #ff9068);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  animation: pulse 2s infinite;
+}
+@keyframes pulse {
+  0%,100% { transform: scale(1); }
+  50% { transform: scale(1.1); }
+}
+.image {
+  text-align: center;
+}
+.image img {
+  width: 80%;
+  border-radius: 50%;
+  border: 5px solid #117568;
+  box-shadow: 0 0 20px rgba(0,0,0,0.4);
+  transition: transform 0.3s ease-in-out;
+}
+.image img:hover {
+  transform: scale(1.05) rotate(-2deg);
+}
+
+
+.cardInside {
+  position: absolute;
+  background-color: #fff;
+  width: 260px;
+  height: 370px;
+  z-index: -1;
+  left: 0;
+  top: 0;
+  box-shadow: inset 100px 20px 100px rgba(0, 0, 0, 0.2);
+  border-radius: 12px;
+  padding: 10px;
+}
+.cardInside h3 {
+  color: #ff4b1f;
+  font-weight: bold;
+}
+p {
+  margin: 5px 15px;
+  color: #444;
+  font-size: 14px;
+}
+.name {
+  position: absolute;
+  right: 20px;
+  bottom: 20px;
+  font-weight: bold;
+  font-size: 14px;
+  color: #118ab2;
+  text-decoration: underline;
+}
+
+
+.birthdayCard:hover {
+  transform: perspective(2500px) rotateY(15deg);
+  box-shadow: 0 20px 60px rgba(0, 0, 0, .6);
+}
+.birthdayCard:hover .cardFront {
+  transform: rotateY(-160deg);
+}
+.birthdayCard:hover .happy {
+  visibility: hidden;
+}
+
+
+#playButton {
+  display: block;
+  margin: 0 auto 100px auto;
+  padding: 10px 25px;
+  background: linear-gradient(45deg, #ff4b1f, #ff9068);
+  color: #fff;
+  border: none;
+  border-radius: 30px;
+  cursor: pointer;
+  font-size: 16px;
+  animation: glow 2s infinite;
+}
+#playButton:hover {
+  transform: scale(1.1);
+}
+@keyframes glow {
+  0% { box-shadow: 0 0 5px #ff4b1f; }
+  50% { box-shadow: 0 0 20px #ff9068; }
+  100% { box-shadow: 0 0 5px #ff4b1f; }
+}
+
+
+footer{
+ font-size: 12px;
+ color: white;
+ position: absolute;
+ bottom: 10px;
+ text-align: center;
+ width: 100%;
+}
+footer a{ color: white; }
